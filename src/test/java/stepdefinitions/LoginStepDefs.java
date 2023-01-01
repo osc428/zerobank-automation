@@ -21,10 +21,11 @@ public class LoginStepDefs {
         loginPage.loginBox.sendKeys(ConfigurationReader.get("username"));
         loginPage.passwordBox.sendKeys(ConfigurationReader.get("password"));
         loginPage.signInButton.click();
-        Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
+
     }
     @Then("verify Account Summary page is shown")
     public void verify_account_summary_page_is_shown() {
+        Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
         Assert.assertEquals("http://zero.webappsecurity.com/bank/account-summary.html", Driver.get().getCurrentUrl());
     }
     @When("The user enters invalid credentials")
